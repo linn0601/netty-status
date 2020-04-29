@@ -1,9 +1,6 @@
-package org.linn.thrid;
+package org.linn.third;
 
-import com.sun.xml.internal.ws.api.message.MessageWritable;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
@@ -17,8 +14,6 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.util.CharsetUtil;
-
-import java.nio.charset.Charset;
 
 public class MyChatServer {
 

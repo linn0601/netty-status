@@ -1,9 +1,7 @@
-package org.linn.thrid.client;
+package org.linn.third.client;
 
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.util.concurrent.EventExecutorGroup;
 
 public class MyChatClientHandler extends SimpleChannelInboundHandler<String> {
 

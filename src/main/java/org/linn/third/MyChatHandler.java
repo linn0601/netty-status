@@ -1,16 +1,11 @@
-package org.linn.thrid;
+package org.linn.third;
 
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
-import io.netty.util.concurrent.EventExecutorGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
-
-import java.util.List;
-import java.util.logging.SocketHandler;
 
 public class MyChatHandler extends SimpleChannelInboundHandler<String> {
 
