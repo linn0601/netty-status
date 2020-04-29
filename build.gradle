@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group 'org.linn'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.49.Final'
+}
