@@ -1,47 +1,41 @@
-package org.linn.third;
+package org.linn.firstexample;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelPipeline;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.DelimiterBasedFrameDecoder;
-import io.netty.handler.codec.Delimiters;
-import io.netty.handler.codec.string.StringDecoder;
-import io.netty.handler.codec.string.StringEncoder;
-import io.netty.handler.logging.LoggingHandler;
-import io.netty.util.CharsetUtil;
+import io.netty.handler.codec.http.HttpServerCodec;
 
-public class MyChatServer {
+public class TestServer {
 
     public static void main(String[] args) {
-        MyChatServer.start(8088);
+        TestServer.start(8088);
     }
 
+    /**
+     * 服务端启动
+     *
+     * @param port 8088
+     */
     public static void start(int port) {
+        //建立2个线程池，基于reactive编程模型
         EventLoopGroup bossGroup = new NioEventLoopGroup();
+        //boss 获得请求后转发给work去执行
         EventLoopGroup workGroup = new NioEventLoopGroup();
-
+        //服务端启动类
         ServerBootstrap bootstrap = new ServerBootstrap();
+        //绑定到channelHandler
         bootstrap.group(bossGroup, workGroup)
                 .channel(NioServerSocketChannel.class)
-                .handler(new LoggingHandler())
                 .childHandler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
                         ChannelPipeline pipeline = ch.pipeline();
-                        pipeline.addLast(new DelimiterBasedFrameDecoder(4096, Delimiters.lineDelimiter()));
-                        pipeline.addLast(new StringDecoder(CharsetUtil.UTF_8));
-                        pipeline.addLast(new StringEncoder(CharsetUtil.UTF_8));
-                        pipeline.addLast(new MyChatHandler());
-                        //自定义分隔符
-                        //pipeline.addLast(new DelimiterBasedFrameDecoder(4096, Unpooled.copiedBuffer("$_".getBytes())));
+                        pipeline.addLast("httpServerCoder", new HttpServerCodec());
+                        pipeline.addLast("httpServerHandler", new TestHttpServerHandler());//最后处理，addList添加到管道最后
                     }
                 });
-
         try {
             ChannelFuture channelFuture = bootstrap.bind(port).sync();
             channelFuture.channel().closeFuture().sync();
@@ -50,5 +44,6 @@ public class MyChatServer {
             bossGroup.shutdownGracefully();
             workGroup.shutdownGracefully();
         }
+
     }
 }

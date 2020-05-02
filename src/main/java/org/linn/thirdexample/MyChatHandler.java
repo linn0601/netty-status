@@ -1,4 +1,4 @@
-package org.linn.third;
+package org.linn.thirdexample;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;

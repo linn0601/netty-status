@@ -1,4 +1,4 @@
-package org.linn.first;
+package org.linn.firstexample;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

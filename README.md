@@ -31,5 +31,7 @@ channelActive （上线）、channelInactive（下线）、channelAdded（加入
 2.second netty搭建客户端和服务端，测试ChannelInboundHandlerAdapter下回调函数
 3.third  netty搭建简单群聊功能
 4.fourth netty心跳 userEventTriggered("用户事件被触发") IdleStatusEvent
+5.fifth  netty中WebSocket 编程 核心handler HttpObjectAggregator(消息聚合处理)、WebSocketHandlerProtocolHandler(简化WebSocket处理)
+ChunkedWriteHandler(对大量数据写入的支持，既不花费大量内存也不获取异步数据)
 
 

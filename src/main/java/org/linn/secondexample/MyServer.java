@@ -1,4 +1,4 @@
-package org.linn.second;
+package org.linn.secondexample;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

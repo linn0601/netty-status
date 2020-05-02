@@ -1,11 +1,10 @@
-package org.linn.second.client;
+package org.linn.secondexample.client;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.logging.SocketHandler;
 
 public class MyClientHandler extends SimpleChannelInboundHandler<String> {
 

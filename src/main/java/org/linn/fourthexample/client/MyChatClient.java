@@ -1,4 +1,4 @@
-package org.linn.fourth.client;
+package org.linn.fourthexample.client;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;

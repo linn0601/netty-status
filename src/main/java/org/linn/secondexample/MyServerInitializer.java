@@ -1,4 +1,4 @@
-package org.linn.second.client;
+package org.linn.secondexample;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
@@ -9,8 +9,9 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.util.CharsetUtil;
 
-public class MyClientInitializer extends ChannelInitializer<SocketChannel> {
+public class MyServerInitializer extends ChannelInitializer<SocketChannel> {
 
+    //客户端与服务器一旦连接，initChannel方法被调用
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
@@ -18,6 +19,6 @@ public class MyClientInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast(new LengthFieldPrepender(4));
         pipeline.addLast(new StringDecoder(CharsetUtil.UTF_8));
         pipeline.addLast(new StringEncoder(CharsetUtil.UTF_8));
-        pipeline.addLast(new MyClientHandler());
+        pipeline.addLast(new MyServerHandler());
     }
 }
