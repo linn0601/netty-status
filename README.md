@@ -28,10 +28,17 @@ channelActive （上线）、channelInactive（下线）、channelAdded（加入
 ---------------------------------------
 项目src/main
 1.first  netty搭建一个简单服务
+
 2.second netty搭建客户端和服务端，测试ChannelInboundHandlerAdapter下回调函数
+
 3.third  netty搭建简单群聊功能
+
 4.fourth netty心跳 userEventTriggered("用户事件被触发") IdleStatusEvent
-5.fifth  netty中WebSocket 编程 核心handler HttpObjectAggregator(消息聚合处理)、WebSocketHandlerProtocolHandler(简化WebSocket处理)
-ChunkedWriteHandler(对大量数据写入的支持，既不花费大量内存也不获取异步数据)
 
+5.fifth  netty中WebSocket 编程 核心handler HttpObjectAggregator(消息聚合处理)、WebSocketHandlerProtocolHandler(简化WebSocket处理)ChunkedWriteHandler(对大量数据写入的支持，既不花费大量内存也不获取异步数据)
 
+6.six java提供的序列化传输效率低，限制大。该模块引入Google ProtoBuf来进行消息传输的对象编解码工作。Netty提供了四个编解码器的使用都是以"ProtoBuf"开头的类
+
+7.seven Nio中的三个概念Selector Channel Buffer，Buffer中 position、limit、capacity 的概念 Nio操作就是获取Channel对象，然后通过Buffer进行数据读写(切换使用flip())
+
+ByteBuffer中的三个底层实现类 HeadByteBuffer对象(堆中创建)、MappedByteBuffer对象(文件内存映射，操作内存中的buffer就可以操作文件)、DirectBytBuffer对象(在内存中创建，基于零拷贝)
