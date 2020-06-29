@@ -24,7 +24,7 @@ netty 学习代码
 - 4.二进制传输框架 GoogleProtobuf 编解码
 
 ---------------------------------------
-### 项目src/main
+####  src/main包介绍
 - 1.first  netty搭建一个简单服务
 
 - 2.second netty搭建客户端和服务端，测试ChannelInboundHandlerAdapter下回调函数
